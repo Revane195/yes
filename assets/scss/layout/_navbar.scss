@@ -21,9 +21,121 @@ header {
             gap    : 20px;
 
             .title {
-                display: flex;
-                gap: 5px;
+                display    : flex;
+                gap        : 5px;
                 align-items: center;
+                color      : #fff;
+            }
+
+            &-item {
+                position: relative;
+
+                .drop {
+                    position        : absolute;
+                    top             : calc(100% + 5px);
+                    left            : 0;
+                    z-index         : 250;
+                    background-color: #fff;
+                    min-width       : 215px;
+                    left            : 50%;
+                    transform       : translateX(-50%);
+                    display         : none;
+                    flex-direction  : column;
+                    align-items     : center;
+                    padding         : 16px;
+                    box-shadow      : 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+                    &::after {
+                        content      : "";
+                        position     : absolute;
+                        top          : -8px;
+                        left         : 50%;
+                        border-left  : 5px solid transparent;
+                        border-right : 5px solid transparent;
+                        border-bottom: 8px solid rgb(255, 255, 255);
+                    }
+
+                    .photo {
+                        width        : 40px;
+                        height       : 40px;
+                        margin-bottom: 10px;
+
+                        img {
+                            width : 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .title {
+                        font-size    : 14px;
+                        line-height  : 20px;
+                        color        : #000;
+                        margin-bottom: 5px;
+                    }
+
+                    .subtitle {
+                        font-weight  : 400;
+                        font-size    : 14px;
+                        line-height  : 17px;
+                        color        : #555e6d;
+                        margin-bottom: 16px;
+                    }
+
+                    a.btn {
+                        padding: 3px 30px;
+                    }
+                }
+
+                &:hover {
+                    .drop {
+                        display: flex;
+                    }
+                }
+            }
+
+            &-item.contact {
+                .drop {
+                    padding: 0;
+                    left   : 10%;
+
+                    &::after {
+                        left: 60%;
+                    }
+
+                    &-header {
+                        border-bottom: 1px solid #e3e3e3;
+                        padding      : 12px 16px;
+
+                        .title {
+                            font-weight: 500;
+                            font-size  : 14px;
+                            line-height: 20px;
+                            color      : #232528;
+                        }
+                    }
+
+                    &-body a {
+                        display        : block;
+                        font-weight    : 500;
+                        font-size      : 14px;
+                        line-height    : 20px;
+                        color          : #515459;
+                        padding        : 6px 16px;
+                        transition     : 0.3s;
+                        text-decoration: none;
+                        border         : none;
+                        background     : transparent;
+                        width          : 100%;
+                    }
+
+                }
+
+                &:hover {
+                    .drop {
+                        display: block;
+                    }
+                }
+
             }
 
         }
