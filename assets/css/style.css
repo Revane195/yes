@@ -1579,6 +1579,11 @@ main #google a.btn {
   overflow: hidden;
   z-index: 300;
 }
+@media only screen and (max-width: 785px) {
+  .image-box {
+    padding: 24px 0;
+  }
+}
 .image-box-content {
   display: flex;
   justify-content: space-between;
@@ -1598,6 +1603,33 @@ main #google a.btn {
   cursor: pointer;
   font-size: 25px;
 }
+@media only screen and (max-width: 785px) {
+  .image-box-content {
+    position: relative;
+    height: 100%;
+  }
+  .image-box-content .photo {
+    width: 100%;
+  }
+  .image-box-content .change-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(48, 47, 47, 0.473);
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-box-content .change-btn.prev {
+    left: 10px;
+  }
+  .image-box-content .change-btn.next {
+    right: 10px;
+  }
+}
 .image-box-header {
   display: flex;
   align-items: center;
@@ -1607,6 +1639,11 @@ main #google a.btn {
   font-weight: 400;
   line-height: 24px;
   margin-bottom: 40px;
+}
+@media only screen and (max-width: 785px) {
+  .image-box-header {
+    padding: 0 24px;
+  }
 }
 .image-box-header .close {
   font-size: 28px;

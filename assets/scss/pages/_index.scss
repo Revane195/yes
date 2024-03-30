@@ -1184,7 +1184,7 @@ main {
             @media only screen and (max-width:1024px) {
 
                 padding-right: 0px !important;
-                padding-top : 30px;
+                padding-top  : 30px;
 
 
             }
@@ -1543,6 +1543,11 @@ main {
     overflow        : hidden;
     z-index         : 300;
 
+    @media only screen and (max-width:785px) {
+        padding: 24px 0;
+    }
+
+
     &-content {
         display        : flex;
         justify-content: space-between;
@@ -1564,6 +1569,37 @@ main {
             cursor    : pointer;
             font-size : 25px;
         }
+
+        @media only screen and (max-width:785px) {
+            position: relative;
+            height  : 100%;
+
+            .photo {
+                width: 100%;
+            }
+
+            .change-btn {
+                position        : absolute;
+                top             : 50%;
+                transform       : translateY(-50%);
+                background-color: rgba(48, 47, 47, 0.473);
+                width           : 32px;
+                height          : 32px;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .change-btn.prev {
+                left: 10px;
+
+            }
+            .change-btn.next {
+                right: 10px;
+
+            }
+        }
     }
 
     &-header {
@@ -1575,6 +1611,10 @@ main {
         font-weight    : 400;
         line-height    : 24px;
         margin-bottom  : 40px;
+
+        @media only screen and (max-width:785px) {
+            padding: 0 24px;
+        }
 
         .close {
             font-size: 28px;
