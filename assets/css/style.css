@@ -1403,6 +1403,154 @@ main #banner .buttons a.btn-blue-outline:hover {
   background-color: #fff;
   color: #3578ea;
 }
+main #google {
+  padding: 44px 0 52px;
+  background: #f6faff;
+}
+main #google .google-header {
+  text-align: center;
+}
+main #google .google-header h2 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+main #google .google-header .stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+main #google .google-header .stars img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+main #google .google-header .count {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+main #google .google-header .count a {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #000;
+}
+main #google .google-header .logo {
+  max-width: 120px;
+  margin: 0 auto;
+}
+main #google .google-header .logo img {
+  width: 100%;
+}
+main #google .google-body {
+  position: relative;
+  margin-bottom: 30px;
+}
+main #google .google-body .carousel-container {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+main #google .google-body .carousel-slide {
+  white-space: nowrap;
+}
+main #google .google-body .card {
+  padding: 4px;
+  display: inline-block;
+}
+main #google .google-body .card-content {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+main #google .google-body .card-content .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+}
+main #google .google-body .card-content .card-header .photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+main #google .google-body .card-content .card-header .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main #google .google-body .card-content .card-header .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+main #google .google-body .card-content .card-header .left .name {
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #000000;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+main #google .google-body .card-content .card-header .left .date {
+  color: #000000;
+  opacity: 0.5;
+  font-size: 11.2px !important;
+}
+main #google .google-body .card-content .card-header .right {
+  width: 20px;
+  height: 20px;
+}
+main #google .google-body .card-content .card-header .right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main #google .google-body .card-content .stars {
+  display: flex;
+  gap: 1px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+main #google .google-body .card-content .stars img {
+  width: 17px;
+  height: 17px;
+  object-fit: cover;
+}
+main #google .google-body .card-content .desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 21.75px;
+  height: 87px;
+  font-size: 15px;
+  text-align: left;
+  transition: height 0.5s;
+  font-style: normal;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  padding-right: 0;
+  white-space: wrap;
+}
+main #google .google-body button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  font-size: 30px;
+  color: #cccccc;
+  cursor: pointer;
+}
+main #google .google-body #prevBtn {
+  left: -20px;
+}
+main #google .google-body #nextBtn {
+  right: -20px;
+}
+main #google a.btn {
+  width: 265px;
+  padding: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
 .image-box {
   position: fixed;
   padding: 24px;

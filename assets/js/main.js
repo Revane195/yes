@@ -60,7 +60,7 @@ function showCurrentImage() {
 
 
 let acc = document.querySelectorAll("#faq .accordion .accordion-item button");
-let accNav =document.querySelectorAll("header .accordion .accordion-item button")
+let accNav = document.querySelectorAll("header .accordion .accordion-item button")
 
 
 
@@ -156,7 +156,7 @@ navItem.forEach(element => {
         if (dropMenu !== null) {
             serachItem.classList.remove('active')
         }
-        else{
+        else {
             header.classList.remove("active")
 
         }
@@ -177,8 +177,8 @@ contactBox.addEventListener("mouseover", function () {
     header.classList.add("active")
     serachItem.classList.remove('active')
 
-  
-   
+
+
 })
 contactBox.addEventListener("mouseout", function () {
     contactBox.classList.remove("active")
@@ -207,7 +207,7 @@ shopItemClose.addEventListener("click", function () {
 mobilMenu.addEventListener("click", function () {
     mobilMenu.classList.add("active")
 
-    
+
 })
 mobilMenuClose.addEventListener("click", function (event) {
     event.stopPropagation();
@@ -218,6 +218,68 @@ mobilMenuClose.addEventListener("click", function (event) {
 
 
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+
+
+const carouselSlide = document.querySelector('.carousel-slide');
+const cards = document.querySelectorAll('.card');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let counter = 0;
+const cardWidth = cards[0].clientWidth + 20;
+const visibleCards = 4;
+const intervalTime = 3000; // 3 saniye
+let slideInterval;
+
+function startSlide() {
+    slideInterval = setInterval(() => {
+        if (counter >= cards.length - visibleCards) {
+            counter = 0;
+        } else {
+            counter++;
+        }
+        moveSlide();
+    }, intervalTime);
+}
+
+function stopSlide() {
+    clearInterval(slideInterval);
+}
+
+nextBtn.addEventListener('click', () => {
+    if (counter >= cards.length - visibleCards) return;
+    counter++;
+    moveSlide();
+    stopSlide();
+    startSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+    if (counter <= 0) return;
+    counter--;
+    moveSlide();
+    stopSlide();
+    startSlide();
+});
+
+function moveSlide() {
+    const offsetX = -counter * cardWidth;
+    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+    carouselSlide.style.transform = `translateX(${offsetX}px)`;
+}
+
+startSlide(); // Slider otomatik başlasın
+
+
+
+/////////////////////////////////////////////////////////
 
 serachItem.addEventListener("click", function () {
     serachItem.classList.toggle("active")
