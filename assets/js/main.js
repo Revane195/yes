@@ -101,13 +101,40 @@ prevBtn.addEventListener('click', () => {
     startSlide();
 });
 
+let touchStartX = 0;
+let touchEndX = 0;
+
+carouselSlide.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+carouselSlide.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+});
+
+function handleGesture() {
+    if (touchEndX < touchStartX) {
+        if (counter >= cards.length - visibleCards) return;
+        counter++;
+        moveSlide();
+    } else if (touchEndX > touchStartX) {
+        if (counter <= 0) return;
+        counter--;
+        moveSlide();
+    }
+    stopSlide();
+    startSlide();
+}
+
 function moveSlide() {
     const offsetX = -counter * cardWidth;
     carouselSlide.style.transition = 'transform 0.5s ease-in-out';
     carouselSlide.style.transform = `translateX(${offsetX}px)`;
 }
 
-startSlide(); 
+startSlide();
+
 
 ////  Accordion Menu  ////////////////////////////////////////////////////////////////////////////////////
 
