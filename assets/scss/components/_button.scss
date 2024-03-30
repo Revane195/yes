@@ -8,21 +8,21 @@
 }
 
 .btn-blue-outline {
-    border    : 1px solid #3578ea;
+    border    : 1px solid $blue;
     background: transparent;
-    color     : #3578ea;
+    color     : $blue;
 
 
     &:hover {
-        background: #3578ea;
-        color     : #fff;
+        background: $blue;
+        color     : $white;
     }
 }
 
 .btn-blue {
-    border    : 1px solid #3578ea;
-    background: #3578ea;
-    color     : #fff;
+    border    : 1px solid $blue;
+    background: $blue;
+    color     : $white;
 
     &:hover {
         background: #1764e9;

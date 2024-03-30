@@ -5,6 +5,11 @@
     text-align   : center;
     font-size    : 32px;
     font-weight  : 700;
+
+    @media only screen and (max-width:1024px) {
+        font-size: 24px;
+    }
+
 }
 
 .section-subtitle {
@@ -35,12 +40,13 @@
     font-style   : normal;
     font-weight  : 700;
 }
+
 .section-subtitle-lt {
-    color: #1c244b;
-    text-align: center;
-    font-size: 16px;
+    color      : #1c244b;
+    text-align : center;
+    font-size  : 16px;
     font-weight: 400;
     line-height: 24px;
-    margin: 0 auto 36px;
-    max-width: 1090px;
+    margin     : 0 auto 36px;
+    max-width  : 1090px;
 }

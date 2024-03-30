@@ -1,3 +1,5 @@
+/// File Upload /////////////////////////////////////////////
+
 let uploadFile = document.querySelector("#quote form #upload");
 uploadFile.addEventListener("change", function () {
     displayFileName();
@@ -12,7 +14,7 @@ function displayFileName() {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////
+/// Galery Img Open    //////////////////////////////////////////////////////////////////////////////////
 
 let galleryItem = document.querySelectorAll("#gallery .gallery-box-item");
 let galleryItemClose = document.querySelector(".image-box .close");
@@ -53,49 +55,99 @@ function showCurrentImage() {
 }
 
 
+/// Corusel ///////////////////////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////////////////////////////////////////////
 
+const carouselSlide = document.querySelector('.carousel-slide');
+const cards = document.querySelectorAll('.card');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
+let counter = 0;
+const cardWidth = cards[0].clientWidth + 20;
+const visibleCards = 4;
+const intervalTime = 3000; // 3 saniye
+let slideInterval;
+
+function startSlide() {
+    slideInterval = setInterval(() => {
+        if (counter >= cards.length - visibleCards) {
+            counter = 0;
+        } else {
+            counter++;
+        }
+        moveSlide();
+    }, intervalTime);
+}
+
+function stopSlide() {
+    clearInterval(slideInterval);
+}
+
+nextBtn.addEventListener('click', () => {
+    if (counter >= cards.length - visibleCards) return;
+    counter++;
+    moveSlide();
+    stopSlide();
+    startSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+    if (counter <= 0) return;
+    counter--;
+    moveSlide();
+    stopSlide();
+    startSlide();
+});
+
+function moveSlide() {
+    const offsetX = -counter * cardWidth;
+    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+    carouselSlide.style.transform = `translateX(${offsetX}px)`;
+}
+
+startSlide(); 
+
+////  Accordion Menu  ////////////////////////////////////////////////////////////////////////////////////
 
 let acc = document.querySelectorAll("#faq .accordion .accordion-item button");
 let accNav = document.querySelectorAll("header .accordion .accordion-item button")
+let accFooter = document.querySelectorAll("footer .mobil-menu .accordion .item p")
 
-
-
-accNav.forEach((element, index) => {
-    if (element.parentElement.querySelector('.panel')) {
-        element.parentElement.classList.add('has-panel');
-    }
-    element.addEventListener("click", function () {
-        accNav.forEach((e, i) => {
-            if (i !== index) {
-                e.parentElement.classList.remove("active");
-                if (e.nextElementSibling) {
-                    e.nextElementSibling.style.maxHeight = null;
+let accordionView =(item)=>{
+    item.forEach((element, index) => {
+        if (element.parentElement.querySelector('.panel')) {
+            element.parentElement.classList.add('has-panel');
+        }
+        element.addEventListener("click", function () {
+            item.forEach((e, i) => {
+                if (i !== index) {
+                    e.parentElement.classList.remove("active");
+                    if (e.nextElementSibling) {
+                        e.nextElementSibling.style.maxHeight = null;
+                    }
                 }
+            });
+    
+            this.parentElement.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
             }
         });
-
-        this.parentElement.classList.toggle("active");
-        let panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        }
     });
-});
+}
+
+accordionView(acc);
+accordionView(accNav);
 
 
-
-acc.forEach((element, index) => {
+accFooter.forEach((element, index) => {
     element.addEventListener("click", function () {
-        acc.forEach(e => {
-            e.parentElement.classList.remove("active")
-            e.nextElementSibling.style.maxHeight = null
-        })
+        
 
         element.parentElement.classList.toggle("active")
         let panel = this.nextElementSibling;
@@ -108,7 +160,7 @@ acc.forEach((element, index) => {
 })
 
 
-////////////////////////////////////////////////////////////////////////////
+///// Nav DropDown///////////////////////////////////////////////////////////////////////
 
 let nav = document.querySelector("#nav-menu")
 let header = document.querySelector("header")
@@ -216,71 +268,6 @@ mobilMenuClose.addEventListener("click", function (event) {
 
 
 
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////
-
-
-
-const carouselSlide = document.querySelector('.carousel-slide');
-const cards = document.querySelectorAll('.card');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-
-let counter = 0;
-const cardWidth = cards[0].clientWidth + 20;
-const visibleCards = 4;
-const intervalTime = 3000; // 3 saniye
-let slideInterval;
-
-function startSlide() {
-    slideInterval = setInterval(() => {
-        if (counter >= cards.length - visibleCards) {
-            counter = 0;
-        } else {
-            counter++;
-        }
-        moveSlide();
-    }, intervalTime);
-}
-
-function stopSlide() {
-    clearInterval(slideInterval);
-}
-
-nextBtn.addEventListener('click', () => {
-    if (counter >= cards.length - visibleCards) return;
-    counter++;
-    moveSlide();
-    stopSlide();
-    startSlide();
-});
-
-prevBtn.addEventListener('click', () => {
-    if (counter <= 0) return;
-    counter--;
-    moveSlide();
-    stopSlide();
-    startSlide();
-});
-
-function moveSlide() {
-    const offsetX = -counter * cardWidth;
-    carouselSlide.style.transition = 'transform 0.5s ease-in-out';
-    carouselSlide.style.transform = `translateX(${offsetX}px)`;
-}
-
-startSlide(); // Slider otomatik başlasın
-
-
-
-/////////////////////////////////////////////////////////
-
 serachItem.addEventListener("click", function () {
     serachItem.classList.toggle("active")
     if (serachItem.classList.contains("active")) {
@@ -294,3 +281,9 @@ serachItemClose.addEventListener("click", function () {
     serachItem.classList.remove("active")
     header.classList.remove("active")
 })
+
+
+
+
+
+
