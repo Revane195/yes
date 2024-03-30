@@ -2617,6 +2617,7 @@ header .header-bottom .mobil-menu-box-content {
   max-width: 260px;
   width: 100%;
   position: relative;
+  min-height: 100%;
 }
 header .header-bottom .mobil-menu-box-header {
   padding: 14px 16px;
