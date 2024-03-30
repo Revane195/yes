@@ -1023,6 +1023,11 @@ main #info .info-box .photo img {
 main #info .text {
   padding-right: 25px;
 }
+@media only screen and (max-width: 1024px) {
+  main #info .text {
+    padding-right: 0;
+  }
+}
 main #info .text h2 {
   text-align: start;
 }
@@ -1212,6 +1217,9 @@ main #content .content-box {
   }
 }
 @media only screen and (max-width: 768px) {
+  main #content .content-box .text {
+    padding-left: 0;
+  }
   main #content .content-box .text .buttons {
     flex-direction: column;
     align-items: center;
@@ -1288,6 +1296,12 @@ main #content.bg-blue {
 main #content.bg-blue .text {
   padding-left: 0px;
   padding-right: 44px;
+}
+@media only screen and (max-width: 1024px) {
+  main #content.bg-blue .text {
+    padding-right: 0px !important;
+    padding-top: 30px;
+  }
 }
 main #faq {
   padding: 70px 0;
@@ -1832,7 +1846,7 @@ footer .footer-menu .mobil-menu .social-media .terms {
 }
 footer .footer-menu .mobil-menu .social-media .terms .links {
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
 }
 footer .footer-menu .mobil-menu .social-media .terms .links a {
   font-weight: 400;

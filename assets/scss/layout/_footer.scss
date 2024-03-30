@@ -278,7 +278,7 @@ footer {
 
                     .links {
                         display: flex;
-                        gap:5px;
+                        justify-content: space-between;
                         a {
                             font-weight         : 400;
                             font-size           : 14px;
